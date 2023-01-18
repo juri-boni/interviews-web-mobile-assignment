@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Fragment } from "react";
 
 import { PostsContext } from "../../context/posts.context";
@@ -26,11 +26,14 @@ const Home = () => {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
 
+  //TODO: FIX interaction between pagination and search box
+
   useEffect(() => {
     const newFilteredPosts = posts.filter((post) => {
       return post.title.toLowerCase().includes(searchField);
     });
     setFilteredPosts(newFilteredPosts);
+    setCurrentPage(1);
   }, [posts, searchField]);
 
   const increasePageHandler = () => {
