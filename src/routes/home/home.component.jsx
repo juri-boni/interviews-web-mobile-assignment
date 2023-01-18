@@ -3,6 +3,7 @@ import { Fragment } from "react";
 
 import { PostsContext } from "../../context/posts.context";
 import SearchBox from "../../components/search-box/search-box.component";
+import Pagination from "../../components/pagination/pagination.component";
 import PostList from "../../components/post-list/post-list.component";
 import Button from "../../components/button/button.component";
 
@@ -38,19 +39,21 @@ const Home = () => {
     setPostsPerPage(postsPerPage - 5);
   };
 
+  //TODO: implement onSearchChange
   const onSearchChange = () => {};
 
   return (
     <Fragment>
-      <SearchBox placeholder="search by title" />
-      <div className="arrows-container">
-        <span className="arrow-button" onClick={decreasePageHandler}>
-          &#10094;
-        </span>
-        <span className="page-number">page {currentPage}</span>
-        <span className="arrow-button" onClick={increasePageHandler}>
-          &#10095;
-        </span>
+      <div className="pagination-container">
+        <SearchBox
+          placeholder="search by title"
+          onChangeHandler={onSearchChange}
+        />
+        <Pagination
+          increasePageHandler={increasePageHandler}
+          decreasePageHandler={decreasePageHandler}
+          currentPage={currentPage}
+        ></Pagination>
       </div>
       <PostList posts={currentPosts} />
 

@@ -1,17 +1,7 @@
-.arrows-container {
+.pagination-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 3rem;
-
-  .arrow-button {
-    font-size: 2rem;
-    color: #333;
-  }
-
-  .page-number {
-    font-size: 1.2rem;
-  }
+  justify-content: space-between;
 }
 
 .button-show-container {
