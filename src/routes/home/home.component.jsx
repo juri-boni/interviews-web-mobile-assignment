@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Fragment } from "react";
 
 import { PostsContext } from "../../context/posts.context";
+import SearchBox from "../../components/search-box/search-box.component";
 import PostList from "../../components/post-list/post-list.component";
 import Button from "../../components/button/button.component";
 
@@ -13,10 +14,6 @@ const Home = () => {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-
-  console.log(postsPerPage, "postsPerPage");
-  console.log(currentPage, "currentPage");
-  console.log(postsPerPage * currentPage, "multipl");
 
   const increasePageHandler = () => {
     if (posts.length <= postsPerPage * currentPage) return;
@@ -41,8 +38,11 @@ const Home = () => {
     setPostsPerPage(postsPerPage - 5);
   };
 
+  const onSearchChange = () => {};
+
   return (
     <Fragment>
+      <SearchBox placeholder="search by title" />
       <div className="arrows-container">
         <span className="arrow-button" onClick={decreasePageHandler}>
           &#10094;

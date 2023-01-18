@@ -58,7 +58,9 @@ const Create = () => {
           required
         ></textarea>
 
-        <button className="button-add">Add Post</button>
+        <button type="submit" className="button-add">
+          Add Post
+        </button>
       </form>
     </div>
   );
