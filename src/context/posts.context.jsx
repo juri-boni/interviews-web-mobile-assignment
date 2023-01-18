@@ -25,6 +25,26 @@ export const PostsProvider = ({ children }) => {
   //   setPosts(removePost(posts, postToRemove));
   // };
 
+  const handleIncreasePage = () => {
+    if (posts.length <= postsPerPage * currentPage) return;
+    setCurrentPage(currentPage + 1);
+  };
+
+  const handleDecreasePage = () => {
+    if (currentPage === 1) return;
+    setCurrentPage(currentPage - 1);
+  };
+
+  const handleShowMore = () => {
+    if (posts.length === postsPerPage) return;
+    setPostsPerPage(postsPerPage + 5);
+  };
+
+  const handleShowLess = () => {
+    if (postsPerPage <= 5) return;
+    setPostsPerPage(postsPerPage - 5);
+  };
+
   useEffect(() => {
     const fetchPosts = async () => {
       const posts = await getPosts();
@@ -44,6 +64,10 @@ export const PostsProvider = ({ children }) => {
     setFilteredPosts,
     searchField,
     setSearchField,
+    handleIncreasePage,
+    handleDecreasePage,
+    handleShowMore,
+    handleShowLess,
   };
 
   return (

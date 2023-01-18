@@ -20,6 +20,10 @@ const Home = () => {
     setFilteredPosts,
     searchField,
     setSearchField,
+    handleIncreasePage,
+    handleDecreasePage,
+    handleShowMore,
+    handleShowLess,
   } = useContext(PostsContext);
 
   const indexOfLastPost = currentPage * postsPerPage;
@@ -34,25 +38,10 @@ const Home = () => {
     setCurrentPage(1);
   }, [posts, searchField]);
 
-  const increasePageHandler = () => {
-    if (posts.length <= postsPerPage * currentPage) return;
-    setCurrentPage(currentPage + 1);
-  };
-
-  const decreasePageHandler = () => {
-    if (currentPage === 1) return;
-    setCurrentPage(currentPage - 1);
-  };
-
-  const showMoreItemsHandler = () => {
-    if (posts.length === postsPerPage) return;
-    setPostsPerPage(postsPerPage + 5);
-  };
-
-  const showLessItemsHandler = () => {
-    if (postsPerPage <= 5) return;
-    setPostsPerPage(postsPerPage - 5);
-  };
+  const increasePageHandler = () => handleIncreasePage();
+  const decreasePageHandler = () => handleDecreasePage();
+  const showLessHandler = () => handleShowLess();
+  const showMoreHandler = () => handleShowMore();
 
   const onSearchChange = (e) => {
     const searchFieldString = e.target.value.toLowerCase();
@@ -77,8 +66,8 @@ const Home = () => {
       <PostList posts={currentPosts} />
 
       <div className="button-show-container">
-        <Button onClick={showLessItemsHandler}>Show less</Button>
-        <Button onClick={showMoreItemsHandler}>Show more</Button>
+        <Button onClick={showLessHandler}>Show less</Button>
+        <Button onClick={showMoreHandler}>Show more</Button>
       </div>
     </Fragment>
   );
