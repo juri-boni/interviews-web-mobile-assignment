@@ -3,6 +3,7 @@ import { Fragment } from "react";
 
 import { PostsContext } from "../../context/posts.context";
 import PostList from "../../components/post-list/post-list.component";
+import Button from "../../components/button/button.component";
 
 import "./home.styles.scss";
 
@@ -52,13 +53,10 @@ const Home = () => {
         </span>
       </div>
       <PostList posts={currentPosts} />
-      <div className="button-container">
-        <button className="button-show" onClick={showLessItemsHandler}>
-          Show less
-        </button>
-        <button className="button-show" onClick={showMoreItemsHandler}>
-          Show more
-        </button>
+
+      <div className="button-show-container">
+        <Button onClick={showLessItemsHandler}>Show less</Button>
+        <Button onClick={showMoreItemsHandler}>Show more</Button>
       </div>
     </Fragment>
   );
