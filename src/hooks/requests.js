@@ -18,7 +18,10 @@ export const createPost = async (title, body) => {
     },
   })
     .then((response) => response.json())
-    .then((json) => console.log(json));
+    .then((json) => {
+      console.log(json, "coming from request");
+      return json;
+    });
 };
 
 export const updatePost = async () => {

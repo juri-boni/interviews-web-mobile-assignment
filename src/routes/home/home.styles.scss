@@ -1,0 +1,33 @@
+.arrows-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+
+  .arrow-button {
+    font-size: 2rem;
+    color: #333;
+  }
+
+  .page-number {
+    font-size: 1.2rem;
+  }
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 8rem;
+
+  .button-show {
+    background: #111;
+    color: #fff;
+    font-size: 1.6rem;
+    border: 0;
+    padding: 0.8rem 1.6rem;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+}

@@ -10,10 +10,9 @@ const defaultFormFields = {
 
 const Create = () => {
   const { posts, setPosts } = useContext(PostsContext);
-  console.log(posts);
+  // console.log(posts);
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { title, body } = formFields;
-  // console.log(formFields);
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -22,11 +21,12 @@ const Create = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      //TODO: fix new post
       const newPost = await createPost(title, body);
+      console.log(newPost, "new Post coming from create");
+
+      // setPosts([...posts, newPost]);
       resetFormFields();
-      setPosts([...posts, newPost]);
-      console.log(newPost);
-      // return newPost;
     } catch (error) {
       console.error("error in creating new post:", error);
     }
