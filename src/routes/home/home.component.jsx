@@ -26,8 +26,6 @@ const Home = () => {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
 
-  //TODO: FIX interaction between pagination and search box
-
   useEffect(() => {
     const newFilteredPosts = posts.filter((post) => {
       return post.title.toLowerCase().includes(searchField);

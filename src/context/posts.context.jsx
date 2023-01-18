@@ -2,6 +2,10 @@ import { createContext, useState, useEffect } from "react";
 
 import { getPosts } from "../hooks/requests";
 
+// const removePost = (posts, postToRemove) => {
+//   return posts.filter((post) => post.id !== postToRemove.id);
+// };
+
 export const PostsContext = createContext({
   posts: [],
   filteredPosts: [],
@@ -17,8 +21,9 @@ export const PostsProvider = ({ children }) => {
   const [filteredPosts, setFilteredPosts] = useState(posts);
   const [searchField, setSearchField] = useState("");
 
-  console.log(searchField);
-  console.log(filteredPosts);
+  // const removePostFromApp = (postToRemove) => {
+  //   setPosts(removePost(posts, postToRemove));
+  // };
 
   useEffect(() => {
     const fetchPosts = async () => {

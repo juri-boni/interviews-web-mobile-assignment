@@ -40,3 +40,9 @@ export const updatePost = async () => {
     .then((response) => response.json())
     .then((json) => console.log(json));
 };
+
+export const deletePost = async (id) => {
+  fetch(`${API_URL}/${id}`, {
+    method: "DELETE",
+  }).then((res) => console.log(`post ${id} deleted`));
+};
