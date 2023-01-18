@@ -3,25 +3,29 @@ $color-primary-light: #444;
 
 .post-container {
   margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
 
-  .title-container {
-    display: flex;
-    justify-content: space-between;
+  .title-body-container {
   }
 
   .post-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: $color-primary;
     text-transform: capitalize;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
   }
 
   .post-body {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: $color-primary-light;
+    padding-bottom: 1.5rem;
+    border-bottom: 0.5px solid #ddd;
   }
 
   .remove-button {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
+    color: #bbb;
   }
 }
