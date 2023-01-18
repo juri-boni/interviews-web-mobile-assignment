@@ -2,9 +2,9 @@ import { createContext, useState, useEffect } from "react";
 
 import { getPosts } from "../hooks/requests";
 
-// const removePost = (posts, postToRemove) => {
-//   return posts.filter((post) => post.id !== postToRemove.id);
-// };
+const removePost = (posts, postToRemove) => {
+  return posts.filter((post) => post.id !== postToRemove.id);
+};
 
 export const PostsContext = createContext({
   posts: [],
@@ -21,9 +21,9 @@ export const PostsProvider = ({ children }) => {
   const [filteredPosts, setFilteredPosts] = useState(posts);
   const [searchField, setSearchField] = useState("");
 
-  // const removePostFromApp = (postToRemove) => {
-  //   setPosts(removePost(posts, postToRemove));
-  // };
+  const removePostFromApp = (postToRemove) => {
+    setPosts(removePost(posts, postToRemove));
+  };
 
   const handleIncreasePage = () => {
     if (posts.length <= postsPerPage * currentPage) return;
@@ -68,6 +68,7 @@ export const PostsProvider = ({ children }) => {
     handleDecreasePage,
     handleShowMore,
     handleShowLess,
+    removePostFromApp,
   };
 
   return (

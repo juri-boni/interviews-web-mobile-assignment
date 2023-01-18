@@ -1,14 +1,17 @@
+import { useContext } from "react";
+import { PostsContext } from "../../context/posts.context";
+import { deletePost } from "../../hooks/requests";
 import "./post.styles.scss";
 
-import { deletePost } from "../../hooks/requests";
-
 const Post = ({ post }) => {
+  const { body, title, id } = post;
+  const { removePostFromApp } = useContext(PostsContext);
+
   const deletePostHandler = () => {
     deletePost(id);
     alert(`post ${id} deleted`);
+    removePostFromApp(post);
   };
-
-  const { body, title, id } = post;
 
   return (
     <div className="post-container">
