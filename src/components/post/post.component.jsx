@@ -6,13 +6,16 @@ import "./post.styles.scss";
 
 const Post = ({ post }) => {
   const { body, title, id } = post;
-  const { removePostFromApp } = useContext(PostsContext);
+  const { removePostFromApp, isCommentOpen, setIsCommentOpen } =
+    useContext(PostsContext);
 
   const deletePostHandler = () => {
     deletePost(id);
     // alert(`post ${id} deleted`);
     removePostFromApp(post);
   };
+
+  const openCommentsHandler = () => setIsCommentOpen(!isCommentOpen);
 
   return (
     <Fragment>
@@ -28,9 +31,11 @@ const Post = ({ post }) => {
         </div>
       </div>
       <div className="comment-button-container">
-        <span className="comment-button">&#65088;</span>
+        <span className="comment-button" onClick={openCommentsHandler}>
+          &#65088;
+        </span>
       </div>
-      {/* <Comment /> */}
+      {isCommentOpen && <Comment />}
     </Fragment>
   );
 };

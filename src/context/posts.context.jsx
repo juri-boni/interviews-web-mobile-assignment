@@ -12,6 +12,7 @@ export const PostsContext = createContext({
   currentPage: 1,
   postsPerPage: 10,
   searchField: "",
+  comments: [],
   isCommentOpen: false,
 });
 
@@ -73,6 +74,8 @@ export const PostsProvider = ({ children }) => {
     handleShowMore,
     handleShowLess,
     removePostFromApp,
+    isCommentOpen,
+    setIsCommentOpen,
   };
 
   return (
