@@ -1,18 +1,20 @@
 import { useState, useContext } from "react";
 import { createPost } from "../../hooks/requests";
 import { PostsContext } from "../../context/posts.context";
+import Button from "../../components/button/button.component";
 import "./create.styles.scss";
 
 const defaultFormFields = {
   title: "",
   body: "",
+  author: "",
 };
 
 const Create = () => {
   const { posts, setPosts } = useContext(PostsContext);
-  // console.log(posts);
+  const newPostId = posts.length + 2;
   const [formFields, setFormFields] = useState(defaultFormFields);
-  const { title, body } = formFields;
+  const { title, body, author } = formFields;
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -21,11 +23,9 @@ const Create = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      //TODO: fix new post
-      const newPost = await createPost(title, body);
-      console.log(newPost, "new Post coming from create");
+      await createPost(title, body, author);
+      const newPost = {};
 
-      // setPosts([...posts, newPost]);
       resetFormFields();
     } catch (error) {
       console.error("error in creating new post:", error);
@@ -42,6 +42,14 @@ const Create = () => {
     <div className="create">
       <form onSubmit={handleSubmit}>
         <h2>Add a New Post</h2>
+        <label>Name:</label>
+        <input
+          onChange={handleChange}
+          name="author"
+          value={author}
+          type="text"
+          required
+        />
         <label>Title:</label>
         <input
           onChange={handleChange}
@@ -58,9 +66,9 @@ const Create = () => {
           required
         ></textarea>
 
-        <button type="submit" className="button-add">
+        <Button type="submit" className="button-add">
           Add Post
-        </button>
+        </Button>
       </form>
     </div>
   );

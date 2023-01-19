@@ -5,13 +5,13 @@ export const getPosts = async () => {
   return await response.json();
 };
 
-export const createPost = async (title, body) => {
+export const createPost = async (title, body, author, newPostId) => {
   fetch(`${API_URL}`, {
     method: "POST",
     body: JSON.stringify({
       title: { title },
       body: { body },
-      userId: 101,
+      userId: { author },
     }),
     headers: {
       "Content-type": "application/json; charset=UTF-8",

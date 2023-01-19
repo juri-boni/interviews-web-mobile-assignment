@@ -9,7 +9,7 @@ const Post = ({ post }) => {
 
   const deletePostHandler = () => {
     deletePost(id);
-    alert(`post ${id} deleted`);
+    // alert(`post ${id} deleted`);
     removePostFromApp(post);
   };
 

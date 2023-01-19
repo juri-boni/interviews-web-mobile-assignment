@@ -21,6 +21,8 @@ export const PostsProvider = ({ children }) => {
   const [filteredPosts, setFilteredPosts] = useState(posts);
   const [searchField, setSearchField] = useState("");
 
+  console.log(posts.length);
+
   const removePostFromApp = (postToRemove) => {
     setPosts(removePost(posts, postToRemove));
   };

@@ -4,7 +4,11 @@ const Pagination = ({
   increasePageHandler,
   decreasePageHandler,
   currentPage,
+  posts,
+  postsPerPage,
 }) => {
+  console.log(posts.length >= postsPerPage * currentPage);
+
   return (
     <div className="arrows-container">
       {currentPage > 1 && (
@@ -14,9 +18,11 @@ const Pagination = ({
       )}
       <span className="page-number">page {currentPage}</span>
 
-      <span className="arrow-button" onClick={increasePageHandler}>
-        &#10095;
-      </span>
+      {posts.length >= postsPerPage * currentPage && (
+        <span className="arrow-button" onClick={increasePageHandler}>
+          &#10095;
+        </span>
+      )}
     </div>
   );
 };
