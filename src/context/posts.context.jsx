@@ -12,8 +12,6 @@ export const PostsContext = createContext({
   currentPage: 1,
   postsPerPage: 10,
   searchField: "",
-  comments: [],
-  isCommentOpen: false,
 });
 
 export const PostsProvider = ({ children }) => {
@@ -22,9 +20,6 @@ export const PostsProvider = ({ children }) => {
   const [postsPerPage, setPostsPerPage] = useState(10);
   const [filteredPosts, setFilteredPosts] = useState(posts);
   const [searchField, setSearchField] = useState("");
-  const [isCommentOpen, setIsCommentOpen] = useState(false);
-
-  console.log(posts);
 
   const removePostFromApp = (postToRemove) => {
     setPosts(removePost(posts, postToRemove));
@@ -74,8 +69,6 @@ export const PostsProvider = ({ children }) => {
     handleShowMore,
     handleShowLess,
     removePostFromApp,
-    isCommentOpen,
-    setIsCommentOpen,
   };
 
   return (

@@ -1,13 +1,14 @@
 import { useContext, Fragment } from "react";
 import { PostsContext } from "../../context/posts.context";
+import { CommentsContext } from "../../context/comments.context";
 import CommentsList from "../comments-list/comments-list.component";
 import { deletePost } from "../../hooks/requests";
 import "./post.styles.scss";
 
 const Post = ({ post }) => {
   const { body, title, id } = post;
-  const { removePostFromApp, isCommentOpen, setIsCommentOpen } =
-    useContext(PostsContext);
+  const { removePostFromApp } = useContext(PostsContext);
+  const { isCommentOpen, setIsCommentOpen } = useContext(CommentsContext);
 
   const deletePostHandler = () => {
     deletePost(id);

@@ -6,6 +6,7 @@ import "./index.scss";
 import App from "./App";
 
 import { PostsProvider } from "./context/posts.context";
+import { CommentsProvider } from "./context/comments.context";
 
 import reportWebVitals from "./reportWebVitals";
 
@@ -14,7 +15,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <PostsProvider>
-        <App />
+        <CommentsProvider>
+          <App />
+        </CommentsProvider>
       </PostsProvider>
     </BrowserRouter>
   </React.StrictMode>
