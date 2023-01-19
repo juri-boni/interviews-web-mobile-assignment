@@ -12,6 +12,7 @@ export const PostsContext = createContext({
   currentPage: 1,
   postsPerPage: 10,
   searchField: "",
+  isCommentOpen: false,
 });
 
 export const PostsProvider = ({ children }) => {
@@ -20,6 +21,7 @@ export const PostsProvider = ({ children }) => {
   const [postsPerPage, setPostsPerPage] = useState(10);
   const [filteredPosts, setFilteredPosts] = useState(posts);
   const [searchField, setSearchField] = useState("");
+  const [isCommentOpen, setIsCommentOpen] = useState(false);
 
   console.log(posts);
 

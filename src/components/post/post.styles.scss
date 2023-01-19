@@ -2,7 +2,7 @@ $color-primary: #222;
 $color-primary-light: #444;
 
 .post-container {
-  margin-bottom: 3rem;
+  margin-bottom: 0.5rem;
   display: flex;
   justify-content: space-between;
   gap: 3rem;
@@ -28,5 +28,13 @@ $color-primary-light: #444;
   .remove-button {
     font-size: 1.7rem;
     color: #bbb;
+  }
+}
+.comment-button-container {
+  margin-bottom: 2.5rem;
+
+  .comment-button {
+    font-size: 1.7rem;
+    color: #777;
   }
 }
