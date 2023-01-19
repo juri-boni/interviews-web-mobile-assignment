@@ -1,6 +1,6 @@
 import { useContext, Fragment } from "react";
 import { PostsContext } from "../../context/posts.context";
-import Comment from "../comments/comments.component";
+import CommentsList from "../comments-list/comments-list.component";
 import { deletePost } from "../../hooks/requests";
 import "./post.styles.scss";
 
@@ -15,6 +15,7 @@ const Post = ({ post }) => {
     removePostFromApp(post);
   };
 
+  //TODO: fix openCommentHandler: it has to open only the relative comment section.
   const openCommentsHandler = () => setIsCommentOpen(!isCommentOpen);
 
   return (
@@ -31,11 +32,17 @@ const Post = ({ post }) => {
         </div>
       </div>
       <div className="comment-button-container">
-        <span className="comment-button" onClick={openCommentsHandler}>
-          &#65088;
-        </span>
+        {isCommentOpen ? (
+          <span className="comment-button" onClick={openCommentsHandler}>
+            &#65087;
+          </span>
+        ) : (
+          <span className="comment-button" onClick={openCommentsHandler}>
+            &#65088;
+          </span>
+        )}
       </div>
-      {isCommentOpen && <Comment />}
+      {isCommentOpen && <CommentsList />}
     </Fragment>
   );
 };

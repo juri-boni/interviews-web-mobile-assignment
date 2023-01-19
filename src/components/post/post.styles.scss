@@ -2,7 +2,7 @@ $color-primary: #222;
 $color-primary-light: #444;
 
 .post-container {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
   display: flex;
   justify-content: space-between;
   gap: 3rem;
@@ -11,18 +11,19 @@ $color-primary-light: #444;
   }
 
   .post-title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: $color-primary;
     text-transform: capitalize;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.3rem;
   }
 
   .post-body {
     font-size: 1.2rem;
+    line-height: 1.1;
     color: $color-primary-light;
-    padding-bottom: 1.5rem;
-    border-bottom: 0.5px solid #ddd;
+    padding-bottom: 1rem;
+    border-bottom: 0.4px solid #ddd;
   }
 
   .remove-button {
@@ -31,7 +32,7 @@ $color-primary-light: #444;
   }
 }
 .comment-button-container {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
 
   .comment-button {
     font-size: 1.7rem;
