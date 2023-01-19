@@ -12,9 +12,9 @@ const defaultFormFields = {
 
 const Create = () => {
   const { posts, setPosts } = useContext(PostsContext);
-  const newPostId = posts.length + 2;
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { title, body, author } = formFields;
+  const newPostId = posts.length + 1;
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -24,7 +24,14 @@ const Create = () => {
     e.preventDefault();
     try {
       await createPost(title, body, author);
-      const newPost = {};
+      const newPost = {
+        title: title,
+        body: body,
+        userId: author,
+        id: newPostId,
+      };
+
+      setPosts([...posts, newPost]);
 
       resetFormFields();
     } catch (error) {
