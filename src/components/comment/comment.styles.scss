@@ -1,0 +1,14 @@
+.comment-container {
+  display: flex;
+  gap: 0.8rem;
+
+  .comment-name {
+    color: #444;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  // .comment-email {
+  //   color: rgba(152, 73, 105, 0.631);
+  // }
+}

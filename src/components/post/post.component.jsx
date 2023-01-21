@@ -29,7 +29,9 @@ const Post = ({ post }) => {
       <div className="post-container">
         <div className="title-body-container">
           <h2 className="post-title"> {title}</h2>
-          <p className="post-body">{body} </p>
+          <p className="post-body">
+            {body.charAt(0).toUpperCase() + body.slice(1)}{" "}
+          </p>
         </div>
         <div className="remove-button-container">
           <span className="remove-button" onClick={deletePostHandler}>
