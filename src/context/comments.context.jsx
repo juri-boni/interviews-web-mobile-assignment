@@ -11,8 +11,17 @@ export const CommentsProvider = ({ children }) => {
   const [comments, setComments] = useState([]);
   const [isCommentOpen, setIsCommentOpen] = useState(false);
 
-  console.log(comments);
-  const value = { comments, setComments, isCommentOpen, setIsCommentOpen };
+  const toggleIsCommentOpen = () => {
+    setIsCommentOpen(!isCommentOpen);
+  };
+
+  const value = {
+    comments,
+    setComments,
+    isCommentOpen,
+    setIsCommentOpen,
+    toggleIsCommentOpen,
+  };
 
   useEffect(() => {
     const fetchComments = async () => {

@@ -15,7 +15,6 @@ const Home = () => {
     currentPage,
     setCurrentPage,
     postsPerPage,
-    setPostsPerPage,
     filteredPosts,
     setFilteredPosts,
     searchField,

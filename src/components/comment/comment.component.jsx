@@ -1,10 +1,12 @@
 import "./comment.styles.scss";
 
-const Comment = () => {
+const Comment = ({ comment }) => {
+  const { name, email, body } = comment;
+  console.log(comment);
+
   return (
     <div className="comment-container">
-      
-      <span className="comment">This is a comment sample</span>
+      <span className="comment-name">{name}</span>
     </div>
   );
 };

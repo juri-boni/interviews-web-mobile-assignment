@@ -7,8 +7,10 @@ import "./post.styles.scss";
 
 const Post = ({ post }) => {
   const { body, title, id } = post;
+
   const { removePostFromApp } = useContext(PostsContext);
-  const { isCommentOpen, setIsCommentOpen } = useContext(CommentsContext);
+  const { comments, isCommentOpen, toggleIsCommentOpen } =
+    useContext(CommentsContext);
 
   const deletePostHandler = () => {
     deletePost(id);
@@ -17,7 +19,10 @@ const Post = ({ post }) => {
   };
 
   //TODO: fix openCommentHandler: it has to open only the relative comment section.
-  const openCommentsHandler = () => setIsCommentOpen(!isCommentOpen);
+
+  const openCommentsHandler = () => {
+    toggleIsCommentOpen();
+  };
 
   return (
     <Fragment>
@@ -43,7 +48,7 @@ const Post = ({ post }) => {
           </span>
         )}
       </div>
-      {isCommentOpen && <CommentsList />}
+      {isCommentOpen && <CommentsList comments={comments} id={id} />}
     </Fragment>
   );
 };
