@@ -6,9 +6,23 @@ const removePost = (posts, postToRemove) => {
   return posts.filter((post) => post.id !== postToRemove.id);
 };
 
+const handleOpenedPosts = (openedPosts, selectedPost) => {
+  const existingOpenedPost = openedPosts.find(
+    (openedPost) => openedPost.id === selectedPost.id
+  );
+  if (existingOpenedPost) {
+    return openedPosts.filter(
+      (openedPost) => openedPost !== existingOpenedPost
+    );
+  } else {
+    return [...openedPosts, selectedPost];
+  }
+};
+
 export const PostsContext = createContext({
   posts: [],
   filteredPosts: [],
+  openedPosts: [],
   currentPage: 1,
   postsPerPage: 10,
   searchField: "",
@@ -20,6 +34,13 @@ export const PostsProvider = ({ children }) => {
   const [postsPerPage, setPostsPerPage] = useState(10);
   const [filteredPosts, setFilteredPosts] = useState(posts);
   const [searchField, setSearchField] = useState("");
+  const [openedPosts, setOpenedPosts] = useState([]);
+
+  console.log(openedPosts);
+
+  const openedPostsHandler = (selectedPost) => {
+    setOpenedPosts(handleOpenedPosts(openedPosts, selectedPost));
+  };
 
   const removePostFromApp = (postToRemove) => {
     setPosts(removePost(posts, postToRemove));
@@ -69,6 +90,9 @@ export const PostsProvider = ({ children }) => {
     handleShowMore,
     handleShowLess,
     removePostFromApp,
+    openedPosts,
+    setOpenedPosts,
+    openedPostsHandler,
   };
 
   return (

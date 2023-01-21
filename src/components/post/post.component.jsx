@@ -5,10 +5,10 @@ import CommentsList from "../comments-list/comments-list.component";
 import { deletePost } from "../../hooks/requests";
 import "./post.styles.scss";
 
-const Post = ({ post }) => {
+const Post = ({ post, openedPosts }) => {
   const { body, title, id } = post;
 
-  const { removePostFromApp } = useContext(PostsContext);
+  const { removePostFromApp, openedPostsHandler } = useContext(PostsContext);
   const { comments, isCommentOpen, toggleIsCommentOpen } =
     useContext(CommentsContext);
 
@@ -22,6 +22,9 @@ const Post = ({ post }) => {
 
   const openCommentsHandler = () => {
     toggleIsCommentOpen();
+
+    const postSelected = post;
+    openedPostsHandler(postSelected);
   };
 
   return (

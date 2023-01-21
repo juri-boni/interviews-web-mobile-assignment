@@ -2,9 +2,12 @@ import { useContext, useEffect } from "react";
 import { Fragment } from "react";
 
 import { PostsContext } from "../../context/posts.context";
+import { CommentsContext } from "../../context/comments.context";
+
 import SearchBox from "../../components/search-box/search-box.component";
 import Pagination from "../../components/pagination/pagination.component";
 import PostList from "../../components/post-list/post-list.component";
+
 import Button from "../../components/button/button.component";
 
 import "./home.styles.scss";
@@ -23,7 +26,10 @@ const Home = () => {
     handleDecreasePage,
     handleShowMore,
     handleShowLess,
+    openedPosts,
   } = useContext(PostsContext);
+
+  const { comments } = useContext(CommentsContext);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -62,7 +68,11 @@ const Home = () => {
           postsPerPage={postsPerPage}
         ></Pagination>
       </div>
-      <PostList posts={currentPosts} />
+      <PostList
+        posts={currentPosts}
+        openedPosts={openedPosts}
+        comments={comments}
+      />
 
       <div className="button-show-container">
         <Button onClick={showLessHandler}>Show less</Button>
