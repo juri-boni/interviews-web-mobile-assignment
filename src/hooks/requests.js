@@ -1,4 +1,4 @@
-import { API_URL } from "../utils/jsonplaceholder/jsonplaceholder.utils";
+const API_URL = "https://jsonplaceholder.typicode.com";
 
 export const getPosts = async () => {
   const response = await fetch(`${API_URL}/posts`);
