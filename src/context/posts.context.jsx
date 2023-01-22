@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 
-import { getPosts } from "../hooks/requests";
+import { getPosts } from "../utils/requests";
 
 const removePost = (posts, postToRemove) => {
   return posts.filter((post) => post.id !== postToRemove.id);

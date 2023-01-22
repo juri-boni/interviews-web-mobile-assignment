@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { createPost } from "../../hooks/requests";
+import { createPost } from "../../utils/requests";
 import { PostsContext } from "../../context/posts.context";
 import Button from "../../components/button/button.component";
 import "./create.styles.scss";

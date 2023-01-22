@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { createContext } from "react";
-import { getComments } from "../hooks/requests";
+import { getComments } from "../utils/requests";
 
 export const CommentsContext = createContext({
   comments: [],

@@ -2,7 +2,7 @@ import { useContext, Fragment } from "react";
 import { PostsContext } from "../../context/posts.context";
 import { CommentsContext } from "../../context/comments.context";
 import CommentsList from "../comments-list/comments-list.component";
-import { deletePost } from "../../hooks/requests";
+import { deletePost } from "../../utils/requests";
 import "./post.styles.scss";
 
 const Post = ({ post, openedPosts }) => {
