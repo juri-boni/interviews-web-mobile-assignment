@@ -1,18 +1,17 @@
-const API_URL_POSTS = "https://jsonplaceholder.typicode.com/posts";
-const API_URL_COMMENTS = "https://jsonplaceholder.typicode.com/comments";
+import { API_URL } from "../utils/jsonplaceholder/jsonplaceholder.utils";
 
 export const getPosts = async () => {
-  const response = await fetch(`${API_URL_POSTS}`);
+  const response = await fetch(`${API_URL}/posts`);
   return await response.json();
 };
 
 export const getComments = async () => {
-  const response = await fetch(`${API_URL_COMMENTS}`);
+  const response = await fetch(`${API_URL}/comments`);
   return await response.json();
 };
 
 export const createPost = async (title, body, author, newPostId) => {
-  fetch(`${API_URL_POSTS}`, {
+  fetch(`${API_URL}/posts`, {
     method: "POST",
     body: JSON.stringify({
       title: title,
@@ -31,7 +30,7 @@ export const createPost = async (title, body, author, newPostId) => {
 };
 
 export const updatePost = async () => {
-  fetch(`${API_URL_POSTS}`, {
+  fetch(`${API_URL}/posts`, {
     method: "PUT",
     body: JSON.stringify({
       id: 1,
@@ -48,7 +47,7 @@ export const updatePost = async () => {
 };
 
 export const deletePost = async (id) => {
-  fetch(`${API_URL_POSTS}/${id}`, {
+  fetch(`${API_URL}/posts/${id}`, {
     method: "DELETE",
   }).then((res) => console.log(`post ${id} deleted`));
 };

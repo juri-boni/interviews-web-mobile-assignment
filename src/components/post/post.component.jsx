@@ -22,7 +22,6 @@ const Post = ({ post, openedPosts }) => {
 
   const openCommentsHandler = () => {
     toggleIsCommentOpen();
-
     const postSelected = post;
     openedPostsHandler(postSelected);
   };

@@ -36,7 +36,7 @@ export const PostsProvider = ({ children }) => {
   const [searchField, setSearchField] = useState("");
   const [openedPosts, setOpenedPosts] = useState([]);
 
-  console.log(openedPosts);
+  // console.log(openedPosts);
 
   const openedPostsHandler = (selectedPost) => {
     setOpenedPosts(handleOpenedPosts(openedPosts, selectedPost));
