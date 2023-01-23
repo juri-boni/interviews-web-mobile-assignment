@@ -109,7 +109,8 @@ deployed on netlify (https://thepostassignment.netlify.app/)
 #### Description
 
 I created a minimal application that renders an array of posts and an array of comments fetched from an API (https://jsonplaceholder.typicode.com).
-To allow the users an easier reading, the posts are rendered with a pagination, adn the comments are shown only when the user clicks on the button below the post. Initially, each page renders 10 posts, but there are also 2 buttons at the bottom of the page that respectively subract and add 5 posts, so that the user can keep reading when scrolling, without having to scroll back to the top to change page.
-Considering that the array could hypothetically contain hundreds of posts, there is a search bar at the top of the page, that allows to search for the name of the post needed, rendering a new _filteredPosts_ array.
-To simplify the management of the state, this one is contained in 2 different contexts that keep the state and the main logic of the application.
+To allow the users an easier reading, the posts are rendered with a pagination, and the comments are shown only when the user clicks on the button below the post. Initially, each page renders 10 posts, but there are also 2 buttons at the bottom of the page that respectively subract and add 5 posts, so that the user can keep reading when scrolling, without having to scroll back to the top to change page.
+Considering that the post array could hypothetically contain hundreds of posts, there is a search bar at the top of the page, that allows to search for the name of the post needed, by triggering the rendering of a new _filteredPosts_ array.
+To simplify the state management, there are 2 different contexts that keep the state and the main logic of the application.
 The user can also create new posts going to the _new post_ page: the _handleSubmit_ function allows to actually add the new post in the state, that is rendered when going back to the home page.
+Likewise, the user can delete the post from the app by clicking the cross button near the post.
